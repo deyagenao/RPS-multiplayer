@@ -1,0 +1,18 @@
+body {
+    font-family: 'Chilanka', cursive;
+    background-image: url(../images/rps-wallpaper.png);
+}
+
+#main-content {
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+#submit-name {
+    margin-top: 20px;
+}
+
+#rps-logo {
+    height: 115px;
+}
+
