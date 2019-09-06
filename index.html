@@ -13,10 +13,6 @@
     />
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- jQuery link -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- firebase -->
-    <!-- https://www.gstatic.com/firebasejs/live/3.0/firebase.js -->
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
     <!-- css stylesheet -->
@@ -30,33 +26,34 @@
       </div>
     </nav>
     <div class="container" id="main-content">
+        <div class="divider"></div>
       <!-- form for user to input their desired username -->
       <div class="row">
-        <form class="col m12">
+        <form class="col m12" id="enter-name-form">
           <div class="row">
             <div class="col m2"></div>
             <div class="input-field col m6">
               <!-- <i class="material-icons prefix">mode_edit</i> -->
               <textarea
-                id="icon_prefix2"
+                id="enter-name"
                 class="materialize-textarea"
               ></textarea>
-              <label for="icon_prefix2">Enter Your Name</label>
+              <label for="enter-name">Enter Your Name</label>
             </div>
             <div class="col m4"><a class="waves-effect waves-light btn" id="submit-name">Submit</a></div>
           </div>
         </form>
+        <div id="game-status" class ="center-align"></div>
       </div>
-      <div class="divider"></div>
       <!-- section where the main part of the game takes place (choices and game results) -->
       <div class="row valign-wrapper">
         <!-- player 1 -->
         <div class="col m4 center-align">
-          <div class="card-panel">
-            <h5 id="player-1">Player 1</h5>
-            <a class="waves-effect waves-teal btn-flat" id="player-1-rock">Rock</a>
+          <div class="card-panel" id="player1">
+            <h5 id="player1-name">Player 1</h5>
+            <!-- <a class="waves-effect waves-teal btn-flat" id="player-1-rock">Rock</a>
             <a class="waves-effect waves-teal btn-flat" id="player-1-paper">Paper</a>
-            <a class="waves-effect waves-teal btn-flat" id="player-1-scissors">Scissors</a>
+            <a class="waves-effect waves-teal btn-flat" id="player-1-scissors">Scissors</a> -->
           </div>
         </div>
         <!-- results -->
@@ -68,11 +65,11 @@
         </div>
         <!-- player 2 -->
         <div class="col m4 center-align">
-          <div class="card-panel">
-            <h5 id="player-2">Player 2</h5>
-            <a class="waves-effect waves-teal btn-flat" id="player-2-rock">Rock</a>
+          <div class="card-panel" id="player2">
+            <h5 id="player2-name">Player 2</h5>
+            <!-- <a class="waves-effect waves-teal btn-flat" id="player-2-rock">Rock</a>
             <a class="waves-effect waves-teal btn-flat" id="player-2-paper">Paper</a>
-            <a class="waves-effect waves-teal btn-flat" id="player-2-scissors">Scissors</a>
+            <a class="waves-effect waves-teal btn-flat" id="player-2-scissors">Scissors</a> -->
           </div>
         </div>
       </div>
@@ -80,6 +77,12 @@
       <!-- chat box (?) for connected users -->
       <div class="row"></div>
     </div>
+    <!-- jQuery link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- firebase references -->
+    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <!-- link to javascript -->
     <script src="assets/javascript/game.js"></script>
   </body>
 </html>

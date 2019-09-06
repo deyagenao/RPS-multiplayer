@@ -1,6 +1,7 @@
 body {
     font-family: 'Chilanka', cursive;
-    background-image: url(../images/rps-wallpaper.png);
+    /* background-image: url(../images/rps-wallpaper.png); */
+    background-color:lightgrey;
 }
 
 #main-content {
