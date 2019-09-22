@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>RPS Multiplayer</title>
-    <!-- link to Materialize -->
+
+    <!-- links to Materialize -->
+
     <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+    
     <!-- css stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
+
   </head>
+
   <body>
     <!-- header with game name -->
     <nav>
@@ -25,64 +33,103 @@
         <a href="index.html" class="brand-logo center">Rock, Paper, Scissors</a>
       </div>
     </nav>
+
+    <!-- container for main-content -->
     <div class="container" id="main-content">
-        <div class="divider"></div>
-      <!-- form for user to input their desired username -->
+
+      <div class="divider"></div>
+
       <div class="row">
-        <form class="col m12" id="enter-name-form">
-          <div class="row">
-            <div class="col m2"></div>
-            <div class="input-field col m6">
-              <!-- <i class="material-icons prefix">mode_edit</i> -->
-              <textarea
-                id="enter-name"
-                class="materialize-textarea"
-              ></textarea>
-              <label for="enter-name">Enter Your Name</label>
+        
+
+        <!-- after user inputs name, this section will show user the status of the game -->
+        <div id="game-status" class="center-align">
+
+            <!-- form for user to input their desired username -->
+          <form class="col m12" id="enter-name-form">
+            <div class="row">
+              <div class="col m2"></div>
+              <div class="input-field col m6">
+                <textarea
+                  id="enter-name"
+                  class="materialize-textarea"
+                ></textarea>
+                <label for="enter-name">Enter Your Name</label>
+              </div>
+              <div class="col m4"><a class="waves-effect waves-light btn" id="submit-name">Submit</a></div>
             </div>
-            <div class="col m4"><a class="waves-effect waves-light btn" id="submit-name">Submit</a></div>
-          </div>
-        </form>
-        <div id="game-status" class ="center-align"></div>
+          </form>
+
+        </div>
+
       </div>
+
+
       <!-- section where the main part of the game takes place (choices and game results) -->
       <div class="row valign-wrapper">
+
         <!-- player 1 -->
         <div class="col m4 center-align">
           <div class="card-panel" id="player1">
             <h5 id="player1-name">Player 1</h5>
-            <!-- <a class="waves-effect waves-teal btn-flat" id="player-1-rock">Rock</a>
-            <a class="waves-effect waves-teal btn-flat" id="player-1-paper">Paper</a>
-            <a class="waves-effect waves-teal btn-flat" id="player-1-scissors">Scissors</a> -->
+            <ul>
+            </ul>
+            <div id="player1-chosen"></div>
+            <div class="outcomes">
+              <div class="outcome-trackers" id="player1-wins"></div>
+              <div class="outcome-trackers" id="player1-losses"></div>
+            </div>
           </div>
         </div>
+
         <!-- results -->
         <div class="col m4 center-align">
-            <div class="card-panel">
+            <div class="card-panel" id="result">
                 <h5 id="results">Play with a friend!</h5>
                 <img src="assets/images/rps-logo-1.png" id="rps-logo">
             </div>
         </div>
+
         <!-- player 2 -->
         <div class="col m4 center-align">
           <div class="card-panel" id="player2">
             <h5 id="player2-name">Player 2</h5>
-            <!-- <a class="waves-effect waves-teal btn-flat" id="player-2-rock">Rock</a>
-            <a class="waves-effect waves-teal btn-flat" id="player-2-paper">Paper</a>
-            <a class="waves-effect waves-teal btn-flat" id="player-2-scissors">Scissors</a> -->
+            <ul>
+            </ul>
+            <div id="player2-chosen"></div>
+            <div class="outcomes">
+              <div class="outcome-trackers" id="player2-wins"></div>
+              <div class="outcome-trackers" id="player2-losses"></div>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="divider"></div>
+
       <!-- chat box (?) for connected users -->
-      <div class="row"></div>
+      <div class="row">
+        <div id="chat">
+          <div id="chat-messages"></div>
+          <div id="chat-bar">
+            <input type="text" id="chat-input">
+            <a class="waves-effect waves-light btn" id="chat-send">Send</a>
+          </div>
+        </div>
+      </div>
+
+    
     </div>
+
     <!-- jQuery link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
     <!-- firebase references -->
     <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    
     <!-- link to javascript -->
     <script src="assets/javascript/game.js"></script>
+
   </body>
 </html>
