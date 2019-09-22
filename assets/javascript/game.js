@@ -77,7 +77,7 @@ $("#chat-input").keypress(function(event){
 // Update chat on screen when new message detected - ordered by 'time' value
 chatData.orderByChild("time").on("child_added", function(snapshot){
     $("#chat-messages").append(
-        $("<p>").addClass("player-" +snapshot.val().idNum),
+        $("<p>").addClass("player" +snapshot.val().idNum),
         $("<span>").text(snapshot.val().name + ": " + snapshot.val().message)
     );
 
@@ -98,7 +98,7 @@ $(document).on("click", "li", function(){
 
     //User has chosen, so removes choices and displays that they chose 
     $("#player" + playerNum + " ul").empty();
-    $("#player" + playerNum+ "-chosen").text(clickChoice);
+    $("#player" + playerNum+ "-chosen").html("<h4>" + clickChoice + "</h4>");
 
     // Increments turn. Turn goes from: 
     // 1 - player 1 
@@ -158,11 +158,11 @@ currentTurnRef.on("value", function(snapshot){
         if (currentTurn === 1) {
             // if it's the current player's turn, tell them and show choices
             if (currentTurn === playerNum) {
-                $("#current-turn h3").text("It's Your Turn!");
+                $("#current-turn h4").text("It's Your Turn!");
                 $("#player" +playerNum + " ul").append("<li>Rock</li><li>Paper</li><li>Scissors</li>");
             }else {
                 //If it isn't the current player's turn, tell them they're waiting for player one 
-                $("#current-turn h3").text("Waiting for " +playerOneData.name + " to choose.");
+                $("#current-turn h4").text("Waiting for " +playerOneData.name + " to choose.");
             }
             //shows teal border around active player
             $("#player1").css("border", "2px solid teal");
@@ -170,11 +170,11 @@ currentTurnRef.on("value", function(snapshot){
         }else if (currentTurn === 2) {
             //If it's the current player's turn, tell them and show choices 
             if (currentTurn === playerNum) {
-                $("#current-turn h3").text("It's Your Turn!");
+                $("#current-turn h4").text("It's Your Turn!");
                 $("#player" + playerNum + " ul").append("<li>Rock</li><li>Paper</li><li>Scissors</li>");
             } else {
                 //If it isn't the current player's turn, tell them they're waiting for player two
-                $("#current-turn h3").text("Waiting for " +playerTwoData.name + " to choose.");
+                $("#current-turn h4").text("Waiting for " +playerTwoData.name + " to choose.");
             }
 
             //Shows teal border around active player 
@@ -185,8 +185,8 @@ currentTurnRef.on("value", function(snapshot){
             gameLogic(playerOneData.choice, playerTwoData.choice);
 
             //reveal both player choices 
-            $("#player1-chosen").text(playerOneData.choice);
-            $("#player2-chosen").text(playerTwoData.choice);
+            $("#player1-chosen").html("<h4>" + playerOneData.choice+ "</h4>");
+            $("#player2-chosen").html("<h4>" + playerTwoData.choice + "</h4>");
 
             // reset after timeout
             var moveOn = function() {
@@ -200,11 +200,11 @@ currentTurnRef.on("value", function(snapshot){
                 }
             };
             // show results for 2 seconds, then resets
-            setTimeout(moveOn, 4000);
+            setTimeout(moveOn, 3000);
         }else {
             $("#player1 ul").empty();
             $("#player2 ul").empty();
-            $("#current-turn").html("<h2>Waiting for another player to join.</h2>");
+            $("#current-turn").html("<h4>Waiting for another player to join.</h4>");
             $("#player1").css("border", "1px solid black");
             $("#player2").css("border", "1px solid black");
         }
@@ -264,7 +264,7 @@ function startGame() {
         // Remove name input box and show current player number 
         $("#game-status").empty();
 
-        $("#game-status").append($("<h3>").text("Hi " + username + "! You are Player " +playerNum));
+        $("#game-status").append($("<h4>").text("Hi " + username + "! You are Player " +playerNum));
     }else {
         //If current players is "2", will not allow the player to join
         alert("Sorry, Game Full! Try Again Later!"); 
@@ -274,7 +274,7 @@ function startGame() {
 // Game Logic to determine who will win and increments wins/ losses accordingly 
 function gameLogic (player1choice, player2choice) {
     var playerOneWon = function (){
-        $("#result h5").text(playerOneData.name + " Wins!");
+        $("#result").text(playerOneData.name + " Wins!");
         if (playerNum === 1) {
             playersRef
                 .child("1")
@@ -288,7 +288,7 @@ function gameLogic (player1choice, player2choice) {
     };
 
     var playerTwoWon = function() {
-        $("#result h5").text(playerTwoData.name+ " Wins!");
+        $("#result").text(playerTwoData.name+ " Wins!");
         if (playerNum === 2) {
             playersRef
                 .child("2")
@@ -302,7 +302,7 @@ function gameLogic (player1choice, player2choice) {
     };
 
     var tie = function() {
-        $("#result h5").text("Tie Game!");
+        $("#result").text("Tie Game!");
     };
 
     if (player1choice === "Rock" && player2choice === "Rock") {

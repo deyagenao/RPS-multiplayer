@@ -3,10 +3,19 @@ body {
     background-image: url(../images/crumpled-paper-background.jpg);
 }
 
+input{
+    font-family: 'Chilanka', cursive;
+}
+
+p{
+    font-size: 16px;
+}
+
 .container {
     background-color: #ffffff;
     margin-top: 10px;
-    opacity: 0.9;
+    opacity: 0.95;
+    border-radius: 15px;
 }
 
 #submit-name {
@@ -19,6 +28,19 @@ body {
 
 .card-panel {
     height: 225px;
+    position: relative;
+}
+
+.outcomes {
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+.outcome-trackers{
+    display: inline-block;
+    padding-right: 10px;
 }
 
 
@@ -34,6 +56,14 @@ body {
 #chat-messages {
     height: 150px;
     overflow: auto;
+}
+
+.player1{
+    color: teal;
+}
+
+.player2{
+    color: grey;
 }
 
 
