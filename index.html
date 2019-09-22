@@ -24,6 +24,10 @@
     <!-- css stylesheet -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- firebase references -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
   </head>
 
   <body>
@@ -64,6 +68,11 @@
 
       </div>
 
+      <div class = "row">
+        <!-- update players about the current turn -->
+          <div id="current-turn" class="center-align"><h3></h3></div>
+      </div>
+
 
       <!-- section where the main part of the game takes place (choices and game results) -->
       <div class="row valign-wrapper">
@@ -84,8 +93,8 @@
 
         <!-- results -->
         <div class="col m4 center-align">
-            <div class="card-panel" id="result">
-                <h5 id="results">Play with a friend!</h5>
+            <div class="card-panel">
+                <h5 id="result">Play with a friend!</h5>
                 <img src="assets/images/rps-logo-1.png" id="rps-logo">
             </div>
         </div>
@@ -107,26 +116,24 @@
 
       <div class="divider"></div>
 
+    </div>
+    <div class="container">
       <!-- chat box (?) for connected users -->
       <div class="row">
-        <div id="chat">
-          <div id="chat-messages"></div>
-          <div id="chat-bar">
-            <input type="text" id="chat-input">
-            <a class="waves-effect waves-light btn" id="chat-send">Send</a>
+          <div id="chat">
+            <h5>Chat with other players!</h5>
+            <div id="chat-messages"></div>
+            <div id="chat-bar">
+              <input type="text" id="chat-input">
+              <a class="waves-effect waves-light btn" id="chat-send">Send</a>
+            </div>
           </div>
-        </div>
       </div>
 
-    
     </div>
 
     <!-- jQuery link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
-    <!-- firebase references -->
-    <script src="https://www.gstatic.com/firebasejs/6.5.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     
     <!-- link to javascript -->
     <script src="assets/javascript/game.js"></script>
