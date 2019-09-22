@@ -29,15 +29,19 @@ var playerTwoData = null;
 // Click event for the submit name button 
 $("#submit-name").on("click", function(){
     if ($("#enter-name").val() !== ""){
-        username = $("#enter-name").val()
+        username = $("#enter-name").val();
+        startGame();
+    }else{
+        alert("Please enter a username!")
     }
-    startGame();
 });
 // Listening for enter button 
 $("#enter-name").keypress(function(event){
     if (event.which === 13 && $("#enter-name").val() !== ""){
         username = $("#enter-name").val();
         startGame();
+    }else{
+        alert("Please enter a username!")
     }
 });
 
